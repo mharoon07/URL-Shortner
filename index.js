@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express  = require('express')
 const port = 8003;
 const app = express();
@@ -7,8 +8,8 @@ const UrlRoute= require('./routes/UrlRoute');
 const mainroute = require('./routes/MainRoutes');
 const urlModel= require("./models/UrlModel")
 //Connection
-ConnecttoDB("mongodb+srv://clouddeploy001:4ChZ0PwSYRAJndma@cluster0.plektar.mongodb.net/ShortYourUrl?retryWrites=true&w=majority")
-// ConnecttoDB("mongodb://127.0.0.1:27017/ShortYourUrl")
+ConnecttoDB(`mongodb+srv://clouddeploy001:${process.env.PASSWORD}@cluster0.plektar.mongodb.net/ShortYourUrl?retryWrites=true&w=majority`)
+// ConnecttoDB("mongodb://127.0.0.1:27017/ShortYourUrl")'
 
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./Views"))
